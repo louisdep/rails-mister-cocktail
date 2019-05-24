@@ -13,7 +13,7 @@ url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 cocktail_serialized = open(url).read
 cocktails = JSON.parse(cocktail_serialized)
 
-10.times do
-  cocktail_name = cocktails["drinks"].sample["strIngredient1"]
+cocktails["drinks"].each do |cocktail|
+  cocktail_name = cocktail["strIngredient1"]
   Ingredient.create(name: cocktail_name)
 end
