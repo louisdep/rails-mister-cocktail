@@ -2,7 +2,7 @@
 
 <%= simple_form_for [@cocktail, @dose] do |f| %>
     <%= f.input :description %>
-    <%= f.input :ingredient_id, collection: Ingredient.all %>
+    <%= f.input :ingredient_id, collection: Ingredient.all.order(:name => :asc) %>
     <%= f.submit "add dose", class: "btn btn-primary"  %>
 
 <% end %>
